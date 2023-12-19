@@ -18,8 +18,8 @@
  *   5, 10 => 50
  *   5, 5  => 25
  */
-function getRectangleArea(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleArea(width, height) {
+  return width * height;
 }
 
 /**
@@ -33,8 +33,8 @@ function getRectangleArea(/* width, height */) {
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
-function getCircleCircumference(/* radius */) {
-  throw new Error('Not implemented');
+function getCircleCircumference(radius) {
+  return 2 * Math.PI * radius;
 }
 
 /**
@@ -50,6 +50,27 @@ function getCircleCircumference(/* radius */) {
  *  -3, 3  => 0
  */
 function getAverage(/* value1, value2 */) {
+  // let average = null;
+  // let temp;
+  // let val1 = value1;
+  // let val2 = value2;
+  // if (val1 > val2) {
+  //   temp = val1;
+  //   val1 = val2;
+  //   val2 = temp;
+  // }
+  // if (val1 === val2) {
+  //   average = val1;
+  // }
+  // if (val1 < 0 && val2 > 0) {
+  //   if (Math.abs(1.0 * value1) - Math.abs(1.0 * value2) === 0) {
+  //     average = 0;
+  //   }
+  //   average = (1.0 * val2 + 1.0 * val1) / 2;
+  // }
+  // const diff = Math.abs(1.0 * val2 - val1) / 2;
+  // average = diff + 1.0 * val1;
+  // return average;
   throw new Error('Not implemented');
 }
 
@@ -68,8 +89,10 @@ function getAverage(/* value1, value2 */) {
  *   (0,0) (1,0)    => 1
  *   (-5,0) (10,-10) => 18.027756377319946
  */
-function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getDistanceBetweenPoints(x1, y1, x2, y2) {
+  const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+  // throw new Error('Not implemented');
+  return distance;
 }
 
 /**
@@ -84,8 +107,10 @@ function getDistanceBetweenPoints(/* x1, y1, x2, y2 */) {
  *   x + 8 = 0       => -8
  *   5*x = 0         => 0
  */
-function getLinearEquationRoot(/* a, b */) {
-  throw new Error('Not implemented');
+function getLinearEquationRoot(a, b) {
+  const root = -b / a;
+  return root;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -105,8 +130,12 @@ function getLinearEquationRoot(/* a, b */) {
  *   (0,-1) (1,0)    => π/2
  *   (0,1) (0,1)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const angle = Math.acos(
+    x1 * x2 +
+      ((y1 * y2) / Math.sqrt(x1 ** 2 + y1 ** 2)) * Math.sqrt(x2 ** 2 + y2 ** 2)
+  );
+  return angle;
 }
 
 /**
@@ -122,8 +151,8 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  return value % 10;
 }
 
 /**
@@ -137,8 +166,9 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  const number = Number(value);
+  return number;
 }
 
 /**

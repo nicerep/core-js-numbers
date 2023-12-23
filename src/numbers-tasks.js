@@ -286,14 +286,20 @@ function getCube(num) {
  * @return {number}
  *
  * @example:
- *   0  => 0
+ *   0  => 03
  *   1  => 1
  *   2  => 1
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  const fibonacciArray = [0, 1];
+  if (index > 1) {
+    for (let i = 2; i <= index; i += 1) {
+      fibonacciArray.push(fibonacciArray[i - 2] + fibonacciArray[i - 1]);
+    }
+  }
+  return fibonacciArray[index];
 }
 
 /**
@@ -307,8 +313,8 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  return (n + n ** 2) / 2;
 }
 
 /**
@@ -322,8 +328,14 @@ function getSumToN(/* n */) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  // const stringedNumber = String(num);
+  const arrayOfNumbers = String(num).split('');
+  let sum = 0;
+  arrayOfNumbers.forEach((element) => {
+    sum += Number(element);
+  });
+  return sum;
 }
 
 /**
@@ -337,8 +349,16 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  if (num === 1) return true;
+  const last = num % 10;
+  if (last % 2 !== 0 || last === 0) return false;
+  let value = num;
+  while (value > 1) {
+    value /= 2;
+    if (value === 1) return true;
+  }
+  return false;
 }
 
 /**
@@ -351,8 +371,8 @@ function isPowerOfTwo(/* num */) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
 
 /**
@@ -367,6 +387,22 @@ function getSine(/* num */) {
  * 2, 2    => '10'
  */
 function numberToStringInBase(/* number, base */) {
+  // switch base {
+  //   case 2 :
+  //     {
+  //       let numInArray;
+  //       let sum = num;
+  //       let pow = 0;
+  //       let el = 2;
+  //       while (sum !== 0) {
+  //         while (num > el) {
+  //           el = el ** pow;
+  //           pow += 1;
+  //         }
+  //         sum -= 2 ** pow;
+  //       }
+  //     }
+  // }
   throw new Error('Not implemented');
 }
 
@@ -580,8 +616,8 @@ function getIntegerPartNumber(/* number */) {
  * 1, 2, 3       => 6
  * 0.1, 0.2, 0.3 => 0.6
  */
-function getSumOfNumbers(/* x1, x2, x3 */) {
-  throw new Error('Not implemented');
+function getSumOfNumbers(x1, x2, x3) {
+  return (x1 + x2 + x3).toFixed(5);
 }
 
 /**
@@ -596,8 +632,8 @@ function getSumOfNumbers(/* x1, x2, x3 */) {
  * -5, -6 => -5
  * 0, 5   => 5
  */
-function getMaxNumber(/* firstNumber, secondNumber */) {
-  throw new Error('Not implemented');
+function getMaxNumber(firstNumber, secondNumber) {
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
@@ -612,8 +648,8 @@ function getMaxNumber(/* firstNumber, secondNumber */) {
  * -5, 0 => -5 | -4 | -3 | -2 | -1 | 0
  * -1, 1 => -1 | 0 | 1
  */
-function getRandomInteger(/* min, max */) {
-  throw new Error('Not implemented');
+function getRandomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 /**
@@ -626,8 +662,8 @@ function getRandomInteger(/* min, max */) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  return Math.hypot(a, b);
 }
 
 /**
@@ -643,8 +679,18 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  // let counter = 0;
+  // for (let i = 1; i <= number; i += 1) {
+  //   if (number % 2 === 0) {
+  //     counter += 1;
+  //   }
+  // }
+  // return counter;
+  if (number % 2 === 0) {
+    return Math.abs(number) / 2;
+  }
+  return (Math.abs(number) + 1) / 2;
 }
 
 module.exports = {
